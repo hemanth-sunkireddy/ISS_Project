@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/css/index.css">
+    </head>
+    <body style="background-image: url('../static/images/playlist.avif');">  
+
+         <div class="navigation">
+            <nav>
+                <ul class="nav-links">
+                    <div style="background-color:rgb(233, 217, 128); height:4vh">
+                
+                    
+                  <li><a href="./index.html" target="_self"><div >
+                        Home</div></a></li>
+                        </div> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li><a href="./searchpage.html" target="_self">Search</a></li>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <li><a href="./artists.html" target="_self">Artists</a></li>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <li><a href="./spotLight.html" target="_self">Spotlight</a></li>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <li><a href="./playlist.html" target="_self">Playlist</a></li>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <li><a href="./about.html" target="_self">About</a></li>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  
+                </ul>
+              </nav>
+        </div>
+
+       <h1 style="margin-left:43%; margin-top:10%;">
+            Your Playlist page 
+        </h1>
+       
+        <div style="margin-top:5%" cellspacing="10px" cellpadding="10px" >
+        <center><table border="2" >
+            <thead>
+                <th style="padding-left:10px; padding-right:10px;">
+                    Song Name
+                </th>
+                <th style="padding-left:10px; padding-right:10px">
+                    Song Duration
+                </th>
+            </thead>
+            <tbody>
+    {% for song in message %}
+    <tr>
+        <td  class="song-name">
+            {{ song[1] }}
+        </td>
+        <td style="padding-left:10px; padding-right:10px;" class="song-duration">
+            {{ song[2] }}
+        </td>
+        <td>
+            <button class="remove-song-btn">
+                Remove Song
+            </button>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+        </table>
+        </center>   
+        </div>
+       
+<script>
+    const removeButtons = document.querySelectorAll('.remove-song-btn');
+    removeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const row = button.closest('tr');
+            const song_name = row.querySelector('.song-name').textContent.trim();
+            const song_duration = row.querySelector('.song-duration').textContent.trim();
+            fetch('/remove_from_database', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              'name': song_name
+          })
+      }).then(response => {
+            console.log("Success")
+      }).catch(error => {
+          console.log("Failed")
+      });
+        });
+    });
+</script>
+        
+    </body>
+</html>

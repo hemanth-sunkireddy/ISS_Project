@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>
+           spotlight
+        </title>
+        <style>
+            /* This is for styling the page using css. */
+            .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px;
+            width: 300px; 
+            /* or change width to 30%  */ 
+            }
+            th{
+                font-size: 25px;
+            }
+            .navigation{
+top:0;
+right:0%;
+height:3vw;
+background-color: antiquewhite;
+position:fixed;
+align-items: center;
+justify-content: space-between;
+display: flex;
+width:30%;
+
+}
+
+nav ul.nav-links {
+display: flex;
+list-style-type: none;
+margin: 0;
+padding: 0 16px;
+}
+
+
+
+nav a {
+
+color: blue;
+text-align: center;
+padding: 20px 0;
+text-decoration: none;
+}
+
+
+
+
+
+
+
+        </style>
+        
+
+    </head>
+    <body style="background-image:url(../static/images/home_page_background.jpg)">
+
+        <div class="navigation">
+            <nav>
+                <ul class="nav-links">
+                  <li><a href="./index.html" target="_self">Home</a></li> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <li> <a href="./searchpage.html" target="_self">Search Page</a></li> &nbsp; &nbsp; &nbsp; &nbsp;
+                  <li><a href="./artists.html" target="_self" >Artists</a></li>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <li> <a href="./spotLight.html" target="_self" style="background-color:rgb(233, 217, 128)">Spotlight</a></li> &nbsp; &nbsp; &nbsp; &nbsp;
+                  <li><a href="./playlist.html" target="_self">Playlist</a></li>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <li><a href="./about.html" target="_self">About</a></li>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  
+                </ul>
+              </nav>
+        </div>
+        <!-- This is the content appears in the spotlight page.  -->
+        <!-- Spot light page content.  -->
+        <br /><br />
+        <h1 style="text-align: center; min-height: 1.5em;" id="typing-text">SPOTLIGHT </h1>
+        <img onmouseover="increase()" onmouseout="decrease()" class="center" src="../static/images/artist-images/arijit-singh.png" alt="arijit-singh" id="img">
+        <h2 style="text-align: center; font-size:200%">Arijit Singh</h2>
+        <p style="margin-left: 20%; margin-right: 20%; text-align: center; font-size: 200%;" >Arijit Singh (born 25 April 1987) is an Indian singer and music composer. The recipient of several accolades including a National Film Award and six Filmfare Awards, he has recorded songs in several Indian languages and is regarded as one of the greatest playback singers of this generation.</p>
+        <br /><br />
+        <h2 style="text-align: center;">UPCOMING SONG</h2>
+        <img class="center"src="https://i.ytimg.com/vi/hYo5YsdKjrQ/maxresdefault.jpg" alt="PS2 ANTHEM">
+        <p style="text-align: center; font-size: 35px;" id="timer"></p>
+
+            <form style="float:  left;margin-left: 15%;" id="reviewForm">
+                <h1>Artist Reviews</h1>
+                <label>Name:</label>
+                <input type="text" id="nameInput" required><br><br>
+                <label>Rating:</label>
+                <input type="radio" name="rating" id="rating1" value="1" required>1
+                <input type="radio" name="rating" id="rating2" value="2" required>2
+                <input type="radio" name="rating" id="rating3" value="3" required>3
+                <input type="radio" name="rating" id="rating4" value="4" required>4
+                <input type="radio" name="rating" id="rating5" value="5" required>5<br><br>
+                <label>Review:</label><br>
+                <textarea id="reviewInput" rows="5" cols="50" required></textarea><br><br>
+                <input type="submit" value="Submit">
+            </form>
+
+            <table style="float: left;margin-left: 15%; min-width: 500px; max-width: 750px;" id="reviewTable" border="1">
+                <br><br>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Rating</th>
+                        <th>Review</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+     
+        <script src="../static/js/spotLight.js"></script>
+        <script src="../static/js/typing_effect.js"></script>
+        
+    </body>
+</html>
